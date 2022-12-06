@@ -158,6 +158,11 @@
             Console.WriteLine("Usted ha seleccionado una opcion ERRONEA" + "\n" + "\n" + "\n");
             PresioneEnter();
         }
+        private static void PresioneEnter()
+        {
+            Console.WriteLine("--   Presione ENTER para continuar   --" + "\n" + "\n" + "\n");
+            Console.ReadKey();
+        }
 
 
         private static void AgregarAlumnoNuevo()
@@ -340,11 +345,7 @@
             PresioneEnter();
         }
 
-        private static void PresioneEnter()
-        {
-            Console.WriteLine("--   Presione ENTER para continuar   --" + "\n" + "\n" + "\n");
-            Console.ReadKey();
-        }
+        
 
     }
 }
