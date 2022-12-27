@@ -195,7 +195,7 @@
             while (!esDocumento)
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese N° de Documento: ");
+                Console.Write("Ingrese N° de Documento: ");
 
                 esDocumento = int.TryParse(Console.ReadLine(), out valorDocumento);
 
@@ -203,20 +203,18 @@
                 {
                     Console.Clear();
                     Console.WriteLine("\n" + "\n" + "--   Documento ingresado, NO VALIDO   --" + "\n" + "\n");
-                    Console.WriteLine("--   Presione ENTER para continuar   --" + "\n" + "\n" + "\n");
-                    Console.ReadKey();
+                    PresioneEnter();
                 }
                 else
                 {
                     objetoAlumno.NumDocumento = valorDocumento;
                     Console.WriteLine("\n" + "\n" + "--   Se ha agregado N° de Doumento   --" + "\n" + "\n");
-                    Console.WriteLine("--   Presione ENTER para continuar   --" + "\n" + "\n" + "\n");
-                    Console.ReadKey();
+                    PresioneEnter();
                 }
             }
 
             Console.Clear();
-            Console.WriteLine("Ingrese Nota Final: ");
+            Console.Write("Ingrese Nota Final: ");
             do
             {
                 try
@@ -226,15 +224,14 @@
                 catch
                 {
                     Console.Clear();
-                    Console.WriteLine("\n" + "\n" + "--   El valor de la Nota final debe ser entre 1 y 10   --" + "\n" + "\n");
+                    Console.WriteLine("--   El valor de la Nota final debe ser entre 1 y 10   --" + "\n" + "\n");
                     Console.Write("Ingrese la Nota Final nuevamente: ");
                 }
             } while (objetoAlumno.Nota < 1 || objetoAlumno.Nota > 10);
             if (objetoAlumno.Nota >= 1 || objetoAlumno.Nota <= 10)
             {
                 Console.WriteLine("\n" + "\n" + "--   Se ha agregado Nota Final   --" + "\n" + "\n");
-                Console.WriteLine("--   Presione ENTER para continuar   --" + "\n" + "\n" + "\n");
-                Console.ReadKey();
+                PresioneEnter();
             }
             return objetoAlumno;
         }
@@ -270,12 +267,10 @@
             //  Console.ReadKey();
             // eliminar
             objetoCurso.eliminarAlumno(alumnoAEliminar);
-            Console.ReadKey();
             Console.Clear();
             Console.WriteLine("\n" + "\n" + "--   Se ha eliminado un Alumno   --" + "\n" + "\n");
             PresioneEnter();
         }
-
         private static Alumno SeleccionarAlumno()
         {
             //TODO
@@ -291,14 +286,15 @@
                 {
                     Console.Clear();
                     ListarAlumno();
-                    Console.WriteLine("Ingrese N° de Legajo del alumno que desea editar: " + "\n" + "\n" + "\n");
+                    Console.Write("Ingrese N° de Legajo del alumno que desea: ");
                     ingresarLegajo = Convert.ToInt16(Console.ReadLine());
                     alumnoSeleccionado = objetoCurso.buscarPorLegajo(ingresarLegajo);
                 }
-                catch
+                catch 
                 {
                     Console.Clear();
                     Console.WriteLine("\n" + "\n" + "--   El valor del Legajo, NO es correcto.   --" + "\n" + "\n");
+                    PresioneEnter();
                 }
             } while (alumnoSeleccionado.Legajo == 0);
 
@@ -307,6 +303,7 @@
 
             return alumnoSeleccionado;
         }
+
 
         private static void ListarAlumno()
         {
